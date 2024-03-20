@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'zrnic';
+  src: url('../../../fonts/zrnic\ rg.ttf');
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0);
+  background-size:auto;
+  background-position: center;
+  padding: 10px;
+  height: 80vh;
+  overflow-y: auto;
+ 
+}
+
+  
+  .title {
+    color: #22202079;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'zrnic', sans-serif;
+  }
+
+
+  .envelop{
+    background-color: rgba(212, 115, 202, 0.475);
+    background-image: url('https://static.vecteezy.com/system/resources/previews/021/892/874/original/game-joystick-on-pink-background-with-stars-seamless-pattern-in-kawaii-style-for-gamer-girl-vector.jpg');
+    background-size:cover;
+    background-position:center;
+    padding: 0px;
+    position: fixed;
+  }

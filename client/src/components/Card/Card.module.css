@@ -1,0 +1,75 @@
+/* Define un nuevo tipo de fuente llamado 'zrnic' */
+@font-face {
+  font-family: 'zrnic';
+  src: url('../../../fonts/zrnic\ rg.ttf'); /* URL de la fuente personalizada */
+}
+
+/* Estilos para el contenedor */
+.Container {
+  display: flex; /* Utiliza un modelo de caja flexible */
+  justify-content: flex-start; /* Alinea los elementos a lo largo del eje principal (horizontal) */
+  align-items: center; /* Alinea los elementos a lo largo del eje secundario (vertical) */
+  background-color: #db8c8c; /* Color de fondo negro */
+  padding: 10px; /* Relleno interno de 10 píxeles */
+  border-radius: 20px; /* Borde redondeado */
+  border: 1px solid black; /* Borde sólido de 1 píxel de grosor */
+  box-shadow: 12px 12px 10px 12px rgba(33, 98, 72, 0.69); /* Sombra del contenedor */
+  flex-direction: column; /* Establece la dirección de los elementos hijos como columna */
+  transition: all 0.3s ease; /* Transición suave de todas las propiedades durante 0.3 segundos */
+  opacity: 0.8; /* Opacidad del contenedor */
+}
+
+/* Estilos para el texto dentro del contenedor */
+.text {
+  color: #fdfbfb; /* Color del texto blanco */
+  font-family: 'zrnic', sans-serif; /* Utiliza la fuente 'zrnic' para el texto */
+}
+
+/* Estilos para las imágenes dentro del contenedor */
+.image {
+  width: 200px; /* Ancho de la imagen de 200 píxeles */
+  height: auto; /* Altura automática */
+  transition: all 0.7s ease; /* Transición suave de todas las propiedades durante 0.7 segundos */
+
+  &:hover {
+    transform: scale(1.1); /* Agranda la imagen al acercar el mouse */
+  }
+}
+
+/* Estilos para el botón */
+.button {
+  /* Gradient background para el botón */
+  background: #595959;
+  background-image: -webkit-linear-gradient(top, #595959, #b82b66);
+  background-image: -moz-linear-gradient(top, #595959, #b82b66);
+  background-image: -ms-linear-gradient(top, #595959, #b82b66);
+  background-image: -o-linear-gradient(top, #595959, #b82b66);
+  background-image: linear-gradient(to bottom, #595959, #b82b66);
+
+  /* Propiedades adicionales para el botón */
+  -webkit-border-radius: 60px; /* Borde redondeado en navegadores WebKit */
+  -moz-border-radius: 60px; /* Borde redondeado en navegadores Mozilla */
+  border-radius: 60px; /* Borde redondeado */
+  -webkit-box-shadow: 7px 6px 30px #780478; /* Sombra */
+  -moz-box-shadow: 7px 6px 30px #780478; /* Sombra */
+  box-shadow: 7px 6px 30px #780478; /* Sombra */
+  font-family: Arial; /* Fuente del botón */
+  color: #000000; /* Color del texto del botón */
+  font-size: 20px; /* Tamaño de la fuente */
+  padding: 8px 20px 10px 20px; /* Relleno interno */
+  border: solid #121517 9px; /* Borde sólido */
+  text-decoration: none; /* Sin decoración de texto */
+  font-family: 'zrnic', sans-serif; /* Utiliza la fuente 'zrnic' para el botón */
+}
+
+/* Estilos para el botón al pasar el mouse sobre él */
+.button:hover {
+  /* Gradient background para el botón al pasar el mouse */
+  background: #9d06b8;
+  background-image: -webkit-linear-gradient(top, #9d06b8, #07a82f);
+  background-image: -moz-linear-gradient(top, #9d06b8, #07a82f);
+  background-image: -ms-linear-gradient(top, #9d06b8, #07a82f);
+  background-image: -o-linear-gradient(top, #9d06b8, #07a82f);
+  background-image: linear-gradient(to bottom, #9d06b8, #07a82f);
+  text-decoration: none; /* Sin decoración de texto */
+}

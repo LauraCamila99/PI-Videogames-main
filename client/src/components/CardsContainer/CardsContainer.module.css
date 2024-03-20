@@ -1,0 +1,14 @@
+.Container {
+  display: flex; /* Establece el contenedor como un contenedor flexible, lo que permite a sus elementos hijos comportarse como elementos flexibles. */
+  flex-wrap: wrap; /* Indica que los elementos hijos pueden envolverse en varias líneas si no caben en una sola línea. */
+  justify-content: center; /* Centra los elementos hijos horizontalmente dentro del contenedor. */
+  gap: 2rem; /* Establece un espacio entre los elementos hijos del contenedor de 2 unidades de medida (rem). */
+}
+
+@media screen and (max-width: 768px) { /* Media query que se aplica cuando el ancho de la pantalla es como máximo 768 píxeles. */
+  .Container {
+    flex-direction: column; /* Cambia la dirección de los elementos hijos del contenedor a una columna en lugar de una fila. */
+    align-items: center; /* Centra los elementos hijos verticalmente dentro del contenedor cuando están en una columna. */
+    gap: 1rem; /* Establece un espacio entre los elementos hijos del contenedor de 1 unidad de medida (rem) cuando están en una columna. */
+  }
+}

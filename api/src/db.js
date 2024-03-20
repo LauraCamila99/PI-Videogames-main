@@ -1,17 +1,34 @@
+
+//Con esto llamamos las variables de entorno 
 require('dotenv').config();
+
+// Importamos las librerías necesarias
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
+//Llamamos las variables de entorno
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
+// Creamos la conexion a la base de datos por medio de sequelize utilizando las variables de entorno
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
-const basename = path.basename(__filename);
+//Funcion para saber si la conexion a la base de datos por medio
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Conexión con la base de datos establecida correctamente.');
+  } catch (error) {
+    console.error('Error al conectar con la base de datos:', error);
+  }
+}
 
+// Se está obteniendo el nombre del archivo actual y se está inicializando un arreglo para los modelos
+const basename = path.basename(__filename);
 const modelDefiners = [];
 
 // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
@@ -28,14 +45,20 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame } = sequelize.models;
+const { Videogame, Genre} = sequelize.models;
 
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
+//un Videogame puede tener muchos Genre
+Videogame.belongsToMany(Genre, { through: 'VideogameGenre' });
+//un Genre puede pertenecer a muchos Videogame
+Genre.belongsToMany(Videogame, { through: 'VideogameGenre' });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
+  conn: sequelize,  // para importart la conexión { conn } = require('./db.js');
+  testConnection    // para importart la funcion testconnection
 };
